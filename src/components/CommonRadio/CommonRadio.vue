@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {computed, PropType} from 'vue'
+import {computed,PropType} from 'vue'
+// import type { PropType } from 'vue'
 interface Props {
     modelValue: string | number | boolean
     value: string | number | boolean
@@ -29,7 +30,10 @@ const props = defineProps({
     }
 })
 
-const emit = defineEmits(['update:modelValue'])
+// const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits<{
+    (e: 'update:modelValue', value:Value):void
+}>()
 const modelValue = computed({
     get(){
         return props.modelValue
